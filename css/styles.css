@@ -1,24 +1,762 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@400;700&display=swap');
 
 :root {
-    --primary-color: #0D1B2A;
-    --secondary-color: #1B263B;
-    --tertiary-color: #415A77;
-    --quaternary-color: #778DA9;
-    --quinary-color: #E0E1DD;
-    --black-color: #000;
-    --white-color: #fff;
+  --primary-color: #0D1B2A;
+  --secondary-color: #1B263B;
+  --tertiary-color: #415A77;
+  --quaternary-color: #778DA9;
+  --quinary-color: #E0E1DD;
+  --black-color: #000;
+  --white-color: #fff;
 
-    --primary-font: 'Poppins', sans-serif;
-    --secondary-font: 'Montserrat', sans-serif;
+  --primary-font: 'Poppins', sans-serif;
+  --secondary-font: 'Montserrat', sans-serif;
 
 
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+/* Header general */
+header {
+  background-color: var(--primary-color);
+  /* Fondo del header */
+  color: var(--white-color);
+  /* Color del texto */
+  padding: 10px 20px;
+  /* Espaciado interno */
+  display: flex;
+  /* Alineación horizontal */
+  justify-content: space-between;
+  /* Espaciado entre el logo y el menú */
+  align-items: center;
+  /* Centrado vertical */
+  position: sticky;
+  /* Fijo al hacer scroll */
+  top: 0;
+  /* Anclado al borde superior */
+  z-index: 1000;
+  /* Prioridad encima de otros elementos */
+}
+
+/* Logo o título del header */
+header h1 {
+  font-size: 1.8rem;
+  /* Tamaño del texto del título */
+  margin: 0;
+  /* Sin márgenes */
+  font-family: var(--primary-font);
+  /* Fuente principal */
+}
+
+strong{
+  color: var(--quaternary-color);
+}
+
+/* Estilo del menú de navegación */
+nav ul {
+  list-style: none;
+  /* Sin viñetas en la lista */
+  display: flex;
+  /* Elementos en fila */
+  margin: 0;
+  /* Sin márgenes externos */
+  padding: 0;
+  /* Sin espaciado interno */
+}
+
+/* Estilo de los elementos del menú */
+nav ul li {
+  margin: 0 15px;
+  /* Espaciado horizontal entre enlaces */
+}
+
+/* Enlaces del menú */
+nav ul li a {
+  text-decoration: none;
+  /* Sin subrayado */
+  color: var(--quinary-color);
+  /* Color quinary para contraste */
+  font-weight: bold;
+  /* Texto en negrita */
+  font-size: 1rem;
+  /* Tamaño del texto */
+  font-family: var(--secondary-font);
+  /* Fuente secundaria */
+  transition: color 0.3s ease;
+  /* Transición suave */
+}
+
+/* Efecto hover en los enlaces */
+nav ul li a:hover {
+  color: var(--tertiary-color);
+  /* Color terciario al pasar el ratón */
+}
+
+/* Estilo responsivo (para pantallas pequeñas) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    /* Cambia a columna en móviles */
+    align-items: flex-start;
+    /* Alinea el contenido a la izquierda */
+  }
+
+  nav ul {
+    flex-direction: column;
+    /* Enlaces apilados */
+    width: 100%;
+    /* Ocupa todo el ancho */
+  }
+
+  nav ul li {
+    margin: 10px 0;
+    /* Más espaciado entre enlaces */
+  }
+}
+
+/* Sección hero */
+#hero {
+  display: flex;
+  /* Divide en dos columnas (texto e imagen) */
+  justify-content: space-evenly;
+  /* Espacio entre contenido e imagen */
+  align-items: center;
+  /* Centra los elementos verticalmente */
+  background-color: var(--primary-color);
+  /* Fondo */
+  color: var(--quinary-color);
+  /* Texto claro */
+  padding: 80px 40px;
+  /* Espaciado interno */
+  gap: 1rem;
+  /* Espaciado entre contenido e imagen */
+}
+
+/* Contenido del hero */
+.hero-content {
+  flex: 1;
+  /* Ocupa la mitad del espacio */
+  max-width: 50rem;
+  /* Limita el ancho del texto */
+}
+
+.hero-content h2 {
+  font-family: var(--primary-font);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--quinary-color);
+}
+
+/* Botón de descarga del CV */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--tertiary-color); /* Azul principal */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn:hover {
+  background-color: #0056b3; /* Azul más oscuro en hover */
+  transform: translateY(-2px);
+}
+
+.cta-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: white;
+}
 
 
 
+.hero-image img {
+  max-width: 25rem;
+  height: auto;
+  border-radius: 20%;
+  /* Imagen redondeada */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* Sombra ligera */
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  #hero {
+    flex-direction: column;
+    /* Apila contenido e imagen */
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-image {
+    margin-top: 20px;
+  }
+
+  .cta-btn {
+    justify-content: center;
+  }
+}
+
+/* Sección Sobre mí */
+#sobre-mi {
+  display: flex;
+  /* Divide en dos columnas (texto e imagen) */
+  justify-content: space-between;
+  /* Espaciado entre elementos */
+  align-items: center;
+  /* Centra verticalmente */
+  background-color: var(--secondary-color);
+  /* Color de fondo */
+  color: var(--quinary-color);
+  /* Texto claro */
+  padding: 60px 40px;
+  /* Espaciado interno */
+  gap: 40px;
+  /* Espaciado entre contenido e imagen */
+}
+
+/* Contenedor del texto */
+.about-content {
+  flex: 1;
+  /* Ocupa la mitad del espacio */
+  max-width: 600px;
+  /* Limita el ancho para mejor legibilidad */
+}
+
+.about-content h2 {
+  font-family: var(--primary-font);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--quinary-color);
+}
+
+/* Párrafos de presentación */
+.about-content p {
+  margin: 15px 0;
+  font-family: var(--secondary-font);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Lista de información personal */
+.personal-info {
+  list-style: none;
+  /* Elimina viñetas */
+  padding: 0;
+  margin-top: 20px;
+}
+
+.personal-info li {
+  display: flex;
+  /* Iconos y texto alineados */
+  align-items: center;
+  font-size: 1rem;
+  font-family: var(--secondary-font);
+  margin-bottom: 10px;
+}
+
+.personal-info li i {
+  font-size: 1.2rem;
+  color: var(--tertiary-color);
+  /* Color de los íconos */
+  margin-right: 10px;
+}
+
+/* Imagen en Sobre mí */
+.about-image {
+  flex: 1;
+  /* Ocupa la mitad del espacio */
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* Sombra ligera */
+}
+
+/* Responsivo (pantallas pequeñas) */
+@media (max-width: 768px) {
+  #sobre-mi {
+    flex-direction: column;
+    /* Apila imagen y texto */
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .about-image {
+    margin-top: 20px;
+  }
+}
 
 
+/* Sección Formación */
+#formacion {
+  background-color: var(--secondary-color);
+  color: var(--quinary-color);
+  padding: 60px 40px;
+}
 
+/* Título principal */
+#formacion h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: var(--primary-font);
+  margin-bottom: 40px;
+  color: var(--quinary-color);
+}
+
+/* Contenedor de tarjetas */
+.formacion-academica,
+.programas-cursos,
+.work-experience {
+  display: flex;
+  flex-direction: column;
+  /* Apila los ítems verticalmente */
+  gap: 20px;
+  /* Espaciado entre ítems */
+}
+
+/* Estilo de cada ítem */
+.formacion-academica ul,
+.programas-cursos ul,
+.work-experience ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.formacion-academica li,
+.programas-cursos li,
+.work-experience li {
+  background-color: var(--tertiary-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.formacion-academica li:hover,
+.programas-cursos li:hover,
+.work-experience li:hover {
+  transform: scale(1.03);
+  /* Efecto sutil de agrandamiento */
+}
+
+/* Negritas y separaciones dentro de los ítems */
+.formacion-academica li strong,
+.programas-cursos li strong,
+.work-experience li strong {
+  color: var(--quinary-color);
+  font-size: 1.2rem;
+}
+
+.formacion-academica li br,
+.programas-cursos li br,
+.work-experience li br {
+  margin-bottom: 5px;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+  #formacion {
+    padding: 40px 20px;
+  }
+
+  .formacion-academica li,
+  .programas-cursos li,
+  .work-experience li {
+    padding: 15px;
+  }
+}
+
+/* Estilo general de la sección */
+#certificados {
+  background-color: var(--secondary-color);
+  color: var(--quinary-color);
+  padding: 60px 40px;
+  text-align: center;
+}
+
+/* Título */
+#certificados h2 {
+  font-size: 2.5rem;
+  font-family: var(--primary-font);
+  margin-bottom: 30px;
+  color: var(--quinary-color);
+}
+
+/* Filtros - Estilo general */
+.emitter-filters,
+.area-filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Botones de filtros */
+.filter-btn {
+  background-color: var(--tertiary-color);
+  color: var(--white-color);
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-family: var(--secondary-font);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: var(--quaternary-color);
+}
+
+/* Carrusel */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+/* Certificado individual */
+.certificate-card {
+  flex: 0 0 auto;
+  width: 300px;
+  background-color: var(--tertiary-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: scale(1.05);
+}
+
+/* Imagen del certificado */
+.certificate-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Texto dentro de la tarjeta */
+.certificate-card h4 {
+  font-size: 1.2rem;
+  font-family: var(--primary-font);
+  color: var(--quinary-color);
+}
+
+.certificate-card p {
+  font-size: 0.9rem;
+  font-family: var(--secondary-font);
+}
+
+/* Botón para ver certificado */
+.cert-link {
+  display: inline-block;
+  background-color: var(--quinary-color);
+  color: var(--black-color);
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cert-link:hover {
+  background-color: var(--white-color);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .carousel {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .certificate-card {
+    width: 100%;
+  }
+}
+
+/* Estilo general de la sección */
+#proyectos {
+  background-color: var(--secondary-color);
+  color: var(--quinary-color);
+  padding: 60px 40px;
+  text-align: center;
+}
+
+/* Título */
+#proyectos h2 {
+  font-size: 2.5rem;
+  font-family: var(--primary-font);
+  margin-bottom: 40px;
+  color: var(--quinary-color);
+}
+
+/* Contenedor del proyecto */
+.project-item {
+  display: flex;
+  align-items: center;
+  background-color: var(--tertiary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  gap: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover */
+.project-item:hover {
+  transform: scale(1.03);
+}
+
+/* Imagen del proyecto */
+.project-image {
+  flex: 1;
+}
+
+.project-image img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Información del proyecto */
+.project-info {
+  flex: 2;
+  text-align: left;
+}
+
+.project-info h3 {
+  font-size: 1.8rem;
+  font-family: var(--primary-font);
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  font-size: 1rem;
+  font-family: var(--secondary-font);
+  line-height: 1.6;
+}
+
+/* Tecnologías */
+.technologies h4 {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  font-family: var(--primary-font);
+}
+
+.technologies ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.technologies li {
+  background-color: var(--quaternary-color);
+  color: var(--black-color);
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* Botones de acción */
+.project-buttons {
+  margin-top: 20px;
+}
+
+.project-buttons .btn {
+  display: inline-block;
+  background-color: var(--quinary-color);
+  color: var(--black-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.project-buttons .btn:hover {
+  background-color: var(--white-color);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .project-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .project-image img {
+    max-width: 250px;
+  }
+}
+
+/* Sección de contacto */
+#contacto {
+  background-color: var(--secondary-color);
+  color: var(--quinary-color);
+  padding: 60px 40px;
+  text-align: center;
+}
+
+/* Título */
+#contacto h2 {
+  font-size: 2.5rem;
+  font-family: var(--primary-font);
+  margin-bottom: 40px;
+}
+
+/* Formulario */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: var(--tertiary-color);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Etiquetas */
+form label {
+  display: block;
+  font-size: 1rem;
+  font-family: var(--secondary-font);
+  margin-top: 15px;
+  text-align: left;
+}
+
+/* Campos de entrada */
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid var(--quaternary-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: var(--secondary-font);
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+/* Área de texto */
+form textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Botón de envío */
+button {
+  display: block;
+  width: 100%;
+  background-color: var(--quinary-color);
+  color: var(--black-color);
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: var(--white-color);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  form {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+/* Estilo del footer */
+footer {
+  background-color: var(--primary-color);
+  color: var(--quinary-color);
+  padding: 20px 40px;
+  text-align: center;
+}
+
+/* Texto del footer */
+footer p {
+  font-size: 1rem;
+  font-family: var(--primary-font);
+  margin-bottom: 15px;
+}
+
+/* Navegación en el footer */
+footer nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+footer nav ul li {
+  display: inline-block;
+}
+
+/* Enlaces */
+footer nav ul li a {
+  text-decoration: none;
+  color: var(--quinary-color);
+  font-size: 1rem;
+  font-family: var(--secondary-font);
+  transition: color 0.3s ease;
+}
+
+footer nav ul li a:hover {
+  color: var(--tertiary-color);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  footer {
+    padding: 15px 20px;
+  }
+
+  footer nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 

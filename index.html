@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio de Luis Calegari</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
 
     <header>
-        <h1>Luis.Dev</h1>
+        <h1>Luis<strong>.</strong>Dev</h1>
         <nav>
             <ul>
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="formacion">Formación</a></li>
+                <li><a href="#formacion">Formación</a></li>
                 <li><a href="#certificados">Certificados</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#contacto">Contactame</a></li>
@@ -28,12 +30,18 @@
         <section id="hero" role="banner">
             <div class="hero-content">
                 <h2>Hola, soy Luis Calegari, <br> Desarrollador de Software.</h2>
-                <a href="CV-Luis-Calegari.pdf" class="cta-btn" download>
-                    <img src="download-icon.png" alt="Descargar CV"> Descargar CV
+                <a href="docs/Luis Calegari-CV.pdf" class="cta-btn" download>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                    Descargar CV
                 </a>
             </div>
             <div class="hero-image">
-                <img src="profile-picture.png" alt="Foto de perfil de Luis Calegari, desarrollador web full stack">
+                <img src="/imgs/perfil-calegari.final.jpg"
+                    alt="Foto de perfil de Luis Calegari, desarrollador web full stack">
             </div>
         </section>
 
@@ -59,25 +67,25 @@
                 </p>
                 <ul class="personal-info">
                     <li>
-                        <i class="fas fa-map-marker-alt"></i> Moreno, Buenos Aires
+                        <i class="fa-solid fa-location-dot" style="color: #74C0FC;"></i> Moreno, Buenos Aires
                     </li>
                     <li>
-                        <i class="fas fa-calendar-alt"></i> Fecha de nacimiento: 7/9/1997
+                        <i class="fa-solid fa-calendar-days" style="color: #74C0FC;"></i> Fecha de nacimiento: 7/9/1997
                     </li>
                     <li>
                         <a href="mailto:lcalegari97@gmail.com">
-                            <i class="fas fa-envelope"></i> Enviar email
+                            <i class="fa-solid fa-envelope" style="color: #74C0FC;"></i> Enviar email
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/luiscalegari" target="_blank">
-                            <i class="fab fa-github"></i> GitHub
+                        <a href="https://github.com/Calegaris" target="_blank">
+                            <i class="fa-brands fa-github"></i> GitHub
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="about-image">
-                <img src="about-photo.png" alt="Luis Calegari trabajando">
+                <img src="/imgs/animado.png" alt="Luis Calegari trabajando">
             </div>
         </section>
 
@@ -92,10 +100,12 @@
                         <strong>Universidad Nacional del Oeste (UNO)</strong><br>
                         2022 - Actualidad<br>
                         Licenciatura en Informática (En curso - 2do/3er año)
+                        Promedio °
                     </li>
                     <li>
                         2025 - Actualidad<br>
                         Tecnicatura Universitaria en Tecnologías Web (En curso - 2do año)
+                        Promedio °
                     </li>
                 </ul>
             </div>
@@ -161,26 +171,30 @@
             <!-- Carrusel dinámico -->
             <div class="carousel" id="cert-carousel">
                 <div class="certificate-card" data-emitter="educacionit" data-area="frontend">
-                    <img src="educacionit-frontend-cert.png" alt="Certificado Front-End - EducaciónIT">
-                    <h4>Certificado Front-End</h4>
-                    <p>Fundación Banco Nación | Feb 2025 - En curso</p>
-                    <a href="https://educacionit.com/certificado/frontend" target="_blank" class="cert-link">Ver
+                    <img src="/imgs/Certificado-Desarrollo-Web-con-HTML-EducaciónIT.png"
+                        alt="Certificado Front-End - EducaciónIT">
+                    <h4>Certificado de Aprobación - Desarrollo Web con HTML</h4>
+                    <p>EducacionIT | Feb 2025</p>
+                    <a href="https://www.educacionit.com/perfil/luis-angel-calegari-1058939/certificado/80151?_gl"
+                        target="_blank" class="cert-link">Ver
                         certificado</a>
                 </div>
                 <div class="certificate-card" data-emitter="alura-latam" data-area="backend">
-                    <img src="alura-backend-cert.png" alt="Certificado Back-End - Alura Latam">
-                    <h4>Especialización Back-End</h4>
-                    <p>Alura Latam | 2025 - En curso</p>
-                    <a href="https://alura.com.br/certificado/backend" target="_blank" class="cert-link">Ver
+                    <img src="/imgs/Luis Angel Calegari - Curso Java_ consumir API, escribir archivos y manejar errores - Alura_page-0001.jpg"
+                        alt="Certificado Back-End - Alura Latam">
+                    <h4>Curso Java consumir API, escribir archivos y manejar errores</h4>
+                    <p>Alura Latam | May 2025</p>
+                    <a href="https://app.aluracursos.com/certificate/bda4f05a-8908-4771-b3b6-559868fad11a?lang"
+                        target="_blank" class="cert-link">Ver
                         certificado</a>
                 </div>
-                <div class="certificate-card" data-emitter="caba" data-area="backend">
+                <!--  <div class="certificate-card" data-emitter="caba" data-area="backend">
                     <img src="talento-tech-backend-cert.png" alt="Certificado Back-End - Talento Tech">
                     <h4>Back-End Java</h4>
-                    <p>Talento Tech | 2025 - En curso</p>
+                    <p>Talento Tech | 2025</p>
                     <a href="https://talentotech.com/certificado/backend-java" target="_blank" class="cert-link">Ver
                         certificado</a>
-                </div>
+                </div> -->
                 <!-- Más tarjetas según sea necesario -->
             </div>
         </section>
@@ -191,7 +205,7 @@
             <!-- Proyecto actual -->
             <article class="project-item">
                 <div class="project-image">
-                    <img src="gogym-image.png" alt="Imagen del proyecto GoGym">
+                    <img src="/imgs/goGym.png" alt="Imagen del proyecto GoGym">
                 </div>
                 <div class="project-info">
                     <h3>GoGym</h3>
@@ -211,8 +225,8 @@
                         </ul>
                     </div>
                     <div class="project-buttons">
-                        <a href="https://gogym-example.com" class="btn" target="_blank">Ver proyecto</a>
-                        <a href="https://github.com/luiscalegari/gogym" class="btn" target="_blank">Repositorio en
+                        <a href="#" class="btn" target="_blank">Ver proyecto</a>
+                        <a href="https://github.com/KLGomez/GoGYM" class="btn" target="_blank">Repositorio en
                             GitHub</a>
                     </div>
                 </div>
@@ -289,18 +303,11 @@
 
     <footer>
         <p>Luis Calegari. Desarrollador Web Full Stack - 2025</p>
-        <nav>
-            <ul>
-                <li><a href="#hero">Inicio</a></li>
-                <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#formacion">Formación</a></li>
-                <li><a href="#contacto">Contactame</a></li>
-                <li><a href="#hero">Volver arriba</a></li>
-            </ul>
-        </nav>
     </footer>
 
 
+
+    <script src="js/scripts.js"></script>
 
 </body>
 
