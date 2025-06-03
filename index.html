@@ -18,8 +18,8 @@
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#formacion">Formación</a></li>
-                <li><a href="#certificados">Certificados</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#certificados">Certificados</a></li>
                 <li><a href="#contacto">Contactame</a></li>
             </ul>
         </nav>
@@ -30,7 +30,7 @@
         <section id="hero" role="banner">
             <div class="hero-content">
                 <h2>Hola, soy Luis Calegari, <br> Desarrollador Web Full Stack.</h2>
-                <a href="docs/CV-Luis-Calegari.pdf" class="cta-btn" target="_blank">
+                <a href="docs/Luis-Calegari-CV.pdf" class="cta-btn" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -96,7 +96,7 @@
                         </div>
                     </ul>
                 </div>
-                
+
                 <div class="about-image">
                     <img src="imgs/animado.png" alt="Luis Calegari trabajando">
                 </div>
@@ -165,58 +165,6 @@
             </div>
         </section>
 
-        <section id="certificados">
-            <h2>Certificados</h2>
-
-            <div class="filter-controls">
-                <label for="emitter-select">Emisor:</label>
-                <select id="emitter-select">
-                    <option value="all">Todos</option>
-                    <option value="educacionit">EducaciónIT</option>
-                    <option value="alura-latam">Alura Latam</option>
-                    <option value="caba">Ciudad de Buenos Aires</option>
-                </select>
-
-                <label for="area-select">Área:</label>
-                <select id="area-select">
-                    <option value="all">Todas</option>
-                    <option value="frontend">Front-End</option>
-                    <option value="backend">Back-End</option>
-                    <option value="databases">Bases de Datos</option>
-                </select>
-            </div>
-
-            <!-- Carrusel dinámico -->
-            <div class="carousel" id="cert-carousel">
-                <div class="certificate-card" data-emitter="educacionit" data-area="frontend">
-                    <img src="imgs/Certificado-Desarrollo-Web-con-HTML-EducaciónIT.png"
-                        alt="Certificado Front-End - EducaciónIT">
-                    <h4>Certificado de Aprobación - Desarrollo Web con HTML</h4>
-                    <p>EducacionIT | Feb 2025</p>
-                    <a href="https://www.educacionit.com/perfil/luis-angel-calegari-1058939/certificado/80151?_gl"
-                        target="_blank" class="cert-link">Ver
-                        certificado</a>
-                </div>
-                <div class="certificate-card" data-emitter="alura-latam" data-area="backend">
-                    <img src="imgs/Luis Angel Calegari - Curso Java_ consumir API, escribir archivos y manejar errores - Alura_page-0001.jpg"
-                        alt="Certificado Back-End - Alura Latam">
-                    <h4>Curso Java consumir API, escribir archivos y manejar errores</h4>
-                    <p>Alura Latam | May 2025</p>
-                    <a href="https://app.aluracursos.com/certificate/bda4f05a-8908-4771-b3b6-559868fad11a?lang"
-                        target="_blank" class="cert-link">Ver
-                        certificado</a>
-                </div>
-                <!--  <div class="certificate-card" data-emitter="caba" data-area="backend">
-                    <img src="talento-tech-backend-cert.png" alt="Certificado Back-End - Talento Tech">
-                    <h4>Back-End Java</h4>
-                    <p>Talento Tech | 2025</p>
-                    <a href="https://talentotech.com/certificado/backend-java" target="_blank" class="cert-link">Ver
-                        certificado</a>
-                </div> -->
-                <!-- Más tarjetas según sea necesario -->
-            </div>
-        </section>
-
         <section id="proyectos">
             <h2>Proyectos</h2>
 
@@ -274,6 +222,59 @@
                     </div>
                 </div>
             </div> -->
+        </section>
+
+        <section id="certificados">
+            <h2>Certificados</h2>
+
+            <div class="filter-controls">
+                <label for="emitter-select">Emisor:</label>
+                <select id="emitter-select">
+                    <option value="all">Todos</option>
+                    <option value="educacionit">EducaciónIT</option>
+                    <option value="alura-latam">Alura Latam</option>
+                    <option value="talento-tech">Talento Tech</option>
+                </select>
+
+                <label for="area-select">Área:</label>
+                <select id="area-select">
+                    <option value="all">Todas</option>
+                    <option value="frontend">Front-End</option>
+                    <option value="backend">Back-End</option>
+                    <option value="databases">Bases de Datos</option>
+                </select>
+            </div>
+
+            <!-- Carrusel dinámico -->
+            <div class="carousel" id="cert-carousel">
+                <div class="certificate-card" data-emitter="educacionit" data-area="frontend">
+                    <img src="imgs/Certificado-Desarrollo-Web-con-HTML-EducaciónIT.png"
+                        alt="Certificado Front-End - EducaciónIT">
+                    <h4>Certificado de Aprobación - Desarrollo Web con HTML</h4>
+                    <p>EducacionIT | Feb 2025</p>
+                    <a href="https://www.educacionit.com/perfil/luis-angel-calegari-1058939/certificado/80151?_gl"
+                        target="_blank" class="cert-link">Ver
+                        certificado</a>
+                </div>
+                <div class="certificate-card" data-emitter="alura-latam" data-area="backend">
+                    <img src="imgs/Luis Angel Calegari - Curso Java_ consumir API, escribir archivos y manejar errores - Alura_page-0001.jpg"
+                        alt="Certificado Back-End - Alura Latam">
+                    <h4>Curso Java consumir API, escribir archivos y manejar errores</h4>
+                    <p>Alura Latam | May 2025</p>
+                    <a href="https://app.aluracursos.com/certificate/bda4f05a-8908-4771-b3b6-559868fad11a?lang"
+                        target="_blank" class="cert-link">Ver
+                        certificado</a>
+                </div>
+                <div class="certificate-card" data-emitter="talento-tech" data-area="frontend">
+                    <img src="imgs/Diploma_TT.pdf.jpg" alt="Certificado Back-End - Talento Tech">
+                    <h4>Certificado de Finalizacion - Front-End JS</h4>
+                    <p>Talento Tech | 2024</p>
+                    <a href="https://buenosaires.gob.ar/educacion/agencia-de-habilidades-para-el-futuro/talento-tech"
+                        target="_blank" class="cert-link">Ver
+                        certificado</a>
+                </div>
+                <!-- Más tarjetas según sea necesario -->
+            </div>
         </section>
 
         <section id="contacto">
