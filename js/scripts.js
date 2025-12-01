@@ -73,6 +73,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleBtn && nav) {
         toggleBtn.addEventListener('click', () => {
             nav.classList.toggle('open');
+            const expanded = nav.classList.contains('open');
+            toggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        });
+
+        // cerrar menú móvil al click en un enlace (ancla)
+        const navLinks = nav.querySelectorAll('a[href^="#"]');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768 && nav.classList.contains('open')) {
+                    nav.classList.remove('open');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                    // devolver foco al toggle para accesibilidad
+                    toggleBtn.focus();
+                }
+            });
         });
     }
 

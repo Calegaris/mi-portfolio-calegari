@@ -130,9 +130,28 @@ nav ul li a:hover {
 
 #menu-toggle {
   display: none;
+  /* oculto por defecto (desktop) */
   background: none;
   border: none;
+  color: var(--white-color);
+  font-size: 2rem;
+  cursor: pointer;
+  position: fixed;
+  right: 20px;
+  top: 12px;
+  z-index: 3001;
+  width: 48px;
+  height: 48px;
+  /* display:inline-flex eliminado para evitar que aparezca en desktop */
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.08);
+  transition: background 0.12s ease, transform 0.12s ease;
+}
 
+#menu-toggle:active {
+  transform: scale(0.98);
 }
 
 
@@ -147,25 +166,70 @@ nav ul li a:hover {
   }
 
   #menu-toggle {
+    display: inline-flex;
+    /* visible solo en pantallas pequeñas */
+    position: fixed;
+    right: 18px;
+    top: 12px;
+    z-index: 3001;
+  }
+
+  nav {
+    /* Hacer el nav abierto un overlay fijo para que el botón quede siempre visible */
+    position: fixed;
+    top: var(--header-height);
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    display: none;
+    background-color: var(--quartery-color);
+    z-index: 2000;
+    /* Por debajo del toggle */
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  nav.open {
     display: block;
-    margin-bottom: 1rem;
+    /* Mostrar la navegación cuando está abierta */
   }
 
   nav ul {
-    display: none;
     flex-direction: column;
-    /* Enlaces apilados */
-    width: 100%;
-    /* Ocupa todo el ancho */
-  }
-
-  nav.open ul {
-    display: flex;
+    /* Cambiar a columna en móviles */
+    align-items: flex-end;
+    /* Alinear los elementos al final */
+    padding: 10px;
+    /* Espaciado interno */
   }
 
   nav ul li {
     margin: 10px 0;
-    /* Más espaciado entre enlaces */
+    /* Espaciado vertical entre elementos */
+  }
+
+  /* Enlaces del menú */
+  nav ul li a {
+    text-decoration: none;
+    color: var(--white-color);
+    /* Color blanco */
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: var(--secondary-font);
+    padding: 10px;
+    /* Espaciado interno */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease;
+    /* Transición suave */
+  }
+
+  /* Efecto hover en los enlaces */
+  nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fondo claro en hover */
   }
 }
 
