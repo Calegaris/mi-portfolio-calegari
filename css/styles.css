@@ -1,12 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@400;700&display=swap');
 
+/* Ajuste: hero ocupa la pantalla completa (menos header) */
 :root {
+  /* Ajusta este valor si tu header es más alto o más bajo */
+  --header-height: 72px;
   --primary-color: #082e49;
   --secondary-color: #042034;
   --tertiary-color: #d4d7db;
   --quartery-color: #0056b3;
   --black-color: #000;
   --white-color: #fff;
+
+  /* Color específico para la card GoGym */
+  --gogym-color: #ff7a00;
 
   --primary-font: 'Poppins', sans-serif;
   --secondary-font: 'Montserrat', sans-serif;
@@ -122,6 +128,15 @@ nav ul li a:hover {
 
 }
 
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+
+}
+
+
+
 /* Estilo responsivo (para pantallas pequeñas) */
 @media (max-width: 768px) {
   header {
@@ -131,11 +146,21 @@ nav ul li a:hover {
     /* Alinea el contenido a la izquierda */
   }
 
+  #menu-toggle {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
   nav ul {
+    display: none;
     flex-direction: column;
     /* Enlaces apilados */
     width: 100%;
     /* Ocupa todo el ancho */
+  }
+
+  nav.open ul {
+    display: flex;
   }
 
   nav ul li {
@@ -144,23 +169,49 @@ nav ul li a:hover {
   }
 }
 
+
 /* Sección hero */
 #hero {
-  scroll-margin-top: 60px;
+  /* ocupar la altura disponible de la ventana (excepto el header) */
+  min-height: calc(100vh - var(--header-height));
   display: flex;
-  /* Divide en dos columnas (texto e imagen) */
-  justify-content: space-evenly;
-  /* Espacio entre contenido e imagen */
   align-items: center;
-  /* Centra los elementos verticalmente */
-  background-color: var(--tertiary-color);
-  /* Fondo */
-  color: var(--quinary-color);
-  /* Texto claro */
-  padding: 97px 40px;
-  /* Espaciado interno */
-  gap: 1rem;
-  /* Espaciado entre contenido e imagen */
+  justify-content: center;
+  padding: 72px 20px;
+  box-sizing: border-box;
+  background-color: var(--primary-color);
+  /* ya usado en tu paleta */
+  color: var(--white-color);
+  text-align: center;
+}
+
+/* Si quedan reglas individuales para .hero-image, ocultarlas para evitar conflictos */
+#hero .hero-image {
+  display: none !important;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 992px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  #hero {
+    min-height: calc(100vh - var(--header-height));
+    padding: 56px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 56px;
+  }
+
+  #hero {
+    min-height: calc(100vh - var(--header-height));
+    padding: 48px 14px;
+    align-items: center;
+  }
 }
 
 /* Contenido del hero */
@@ -176,6 +227,58 @@ nav ul li a:hover {
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: var(--quinary-color);
+}
+
+/* Hero — estilo de título y rol */
+.hero-greeting {
+  font-family: var(--primary-font);
+  font-weight: 800;
+  color: var(--white-color);
+  line-height: 1.02;
+  margin: 0 0 8px 0;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  /* grande y responsivo */
+  letter-spacing: 0.2px;
+}
+
+.hero-wave {
+  margin-left: 0.6rem;
+  display: inline-block;
+  transform-origin: 50% 50%;
+  transition: transform 0.28s ease;
+  font-size: 0.95em;
+}
+
+.hero-wave:hover {
+  transform: translateY(-4px) rotate(-8deg);
+}
+
+.hero-role {
+  font-size: 2.25rem;
+  /* aumenté tamaño */
+  font-weight: 700;
+  margin: 0.25rem 0 0;
+}
+
+.hero-techs {
+  font-size: 1rem;
+  color: #6b7280;
+  /* gris tenue */
+  margin-top: 0.35rem;
+  margin-bottom: 1.25rem;
+  /* separa la línea de tecnologías del botón */
+  letter-spacing: 0.4px;
+}
+
+/* Destacar la palabra Backend en gris */
+.role-backend {
+  color: #bdbdbd;
+  font-weight: 700;
+}
+
+/* Ajuste: si existiera .hero-content h2 anterior, ocultarlo para evitar duplicados */
+.hero-content h2 {
+  display: none !important;
 }
 
 /* Botón de descarga del CV */
@@ -249,7 +352,7 @@ nav ul li a:hover {
   align-items: center;
   /* Centra verticalmente */
   background-color: var(--tertiary-color);
-  background: linear-gradient(180deg, rgba(212, 215, 219, 1) 0%, rgba(8, 46, 73, 1) 4%);
+  background: linear-gradient(180deg, rgb(11, 60, 95) 0%, rgba(8, 46, 73, 1) 4%);
   /* Color de fondo */
   color: var(--white-color);
   /* Texto claro */
@@ -320,7 +423,7 @@ nav ul li a:hover {
 
 .personal-info li i {
   font-size: 1.2rem;
- 
+
   /* Color de los íconos */
   margin-right: 10px;
   color: var(--black-color);
@@ -389,7 +492,7 @@ nav ul li a:hover {
 
 .cont-tx-img {
   display: flex;
- 
+
 
 }
 
@@ -430,7 +533,6 @@ nav ul li a:hover {
 
 /* Contenedor de tarjetas */
 .formacion-academica,
-.programas-cursos,
 .work-experience {
   display: flex;
   flex-direction: column;
@@ -441,14 +543,12 @@ nav ul li a:hover {
 }
 
 .formacion-academica h3,
-.programas-cursos h3,
 .work-experience h3 {
   color: var(--white-color);
 }
 
 /* Estilo de cada ítem */
 .formacion-academica ul,
-.programas-cursos ul,
 .work-experience ul {
   list-style: none;
   padding: 0;
@@ -456,7 +556,6 @@ nav ul li a:hover {
 }
 
 .formacion-academica li,
-.programas-cursos li,
 .work-experience li {
   background-color: var(--tertiary-color);
   padding: 20px;
@@ -468,7 +567,6 @@ nav ul li a:hover {
 }
 
 .formacion-academica li:hover,
-.programas-cursos li:hover,
 .work-experience li:hover {
   transform: scale(1.03);
   /* Efecto sutil de agrandamiento */
@@ -479,14 +577,12 @@ nav ul li a:hover {
 
 /* Negritas y separaciones dentro de los ítems */
 .formacion-academica li strong,
-.programas-cursos li strong,
 .work-experience li strong {
   color: var(--quinary-color);
   font-size: 1.2rem;
 }
 
 .formacion-academica li br,
-.programas-cursos li br,
 .work-experience li br {
   margin-bottom: 5px;
 }
@@ -498,7 +594,6 @@ nav ul li a:hover {
   }
 
   .formacion-academica li,
-  .programas-cursos li,
   .work-experience li {
     padding: 15px;
   }
@@ -565,7 +660,8 @@ h3 {
   font-family: var(--secondary-font);
   font-size: 1rem;
   margin-right: 8px;
-  color: var(--black-color);
+  margin-top: 11px;
+  color: var(--white-color);
 }
 
 .filter-controls select {
@@ -667,138 +763,11 @@ h3 {
   }
 }
 
-/* Estilo general de la sección */
-#proyectos {
-  scroll-margin-bottom: 200px;
-  background-color: var(--secondary-color);
-  color: var(--white-color);
-  padding: 200px 40px;
-  text-align: center;
-}
-
-/* Título */
-#proyectos h2 {
-  font-size: 2.5rem;
-  font-family: var(--primary-font);
-  margin-bottom: 40px;
-  color: var(--white-color);
-}
-
-/* Contenedor del proyecto */
-.project-item {
-  display: flex;
-  align-items: center;
-  background-color: var(--tertiary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  gap: 20px;
-  transition: transform 0.3s ease;
-}
-
-/* Efecto hover */
-.project-item:hover {
-  transform: scale(1.03);
-}
-
-/* Imagen del proyecto */
-.project-image {
-  flex: 1;
-}
-
-.project-image img {
-  width: 100%;
-  max-width: 350px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* Información del proyecto */
-.project-info {
-  flex: 2;
-  text-align: left;
-}
-
-.project-info h3 {
-  font-size: 1.8rem;
-  font-family: var(--primary-font);
-  margin-bottom: 10px;
-  color: var(--black-color);
-}
-
-.project-info p {
-  font-size: 1rem;
-  font-family: var(--secondary-font);
-  line-height: 1.6;
-  color: var(--black-color);
-}
-
-/* Tecnologías */
-.technologies h4 {
-  font-size: 1.2rem;
-  margin-top: 15px;
-  font-family: var(--primary-font);
-  color: var(--black-color);
-}
-
-.technologies ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.technologies li {
-  background-color: var(--quartery-color);
-  color: var(--white-color);
-  padding: 6px 12px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-/* Botones de acción */
-.project-buttons {
-  margin-top: 20px;
-}
-
-.project-buttons .btn {
-  display: inline-block;
-  background-color: var(--quartery-color);
-  color: var(--white-color);
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  margin-right: 10px;
-}
-
-.project-buttons .btn:hover {
-  background-color: var(--white-color);
-  color: var(--black-color);
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .project-item {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .project-image img {
-    max-width: 250px;
-  }
-}
-
 /* Sección de contacto */
 #contacto {
   scroll-margin-top: 20px;
   background-color: var(--secondary-color);
-  color: var(--quinary-color);
+  color: var(--white-color);
   padding: 60px 40px;
   text-align: center;
 }
@@ -914,7 +883,8 @@ form textarea {
   resize: none;
 }
 
-#mensaje-exito, #mensaje-error {
+#mensaje-exito,
+#mensaje-error {
   font-family: var(--primary-font);
   font-size: 4rem;
   color: var(--white-color);
@@ -923,13 +893,13 @@ form textarea {
   width: 50%;
   border-radius: 1rem;
   margin: auto;
-  display:none;
+  display: none;
 
 
 }
 
 /* Botón de envío */
-button {
+#contacto form button {
   display: block;
   width: 100%;
   background-color: var(--primary-color);
@@ -945,18 +915,73 @@ button {
   border: 1px solid var(--quartery-color);
 }
 
-button:hover {
+#contacto form button:hover {
   background-color: var(--quartery-color);
   border: 1px solid var(--white-color);
   color: white;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  form {
-    width: 90%;
-    padding: 20px;
-  }
+/* Asegurar que los botones dentro de project-buttons no ocupen todo el ancho */
+.project-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: auto;
+}
+
+/* Botón de repositorio deshabilitado (GoGym) — permitimos hover para mostrar tooltip */
+.btn.repo-disabled {
+  /* no usar pointer-events:none; permitimos hover para mostrar tooltip */
+  pointer-events: auto;
+  cursor: not-allowed;
+  opacity: 0.7;
+  background: linear-gradient(#f0f0f0, #e2e2e2);
+  color: rgba(0, 0, 0, 0.65);
+  border: 1px dashed rgba(0, 0, 0, 0.12);
+  box-shadow: none;
+  transform: none;
+  position: relative;
+}
+
+/* quitar cualquier hover visual */
+.btn.repo-disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Tooltip visual (usa data-tooltip) */
+.btn.repo-disabled[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  bottom: 100%;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.86);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.12s ease, transform 0.12s ease, visibility 0s linear 0.12s;
+  z-index: 50;
+}
+
+/* Mostrar tooltip en hover (o si quieres soportar focus/keyboard cuando no está disabled, añadí focus también) */
+.btn.repo-disabled:hover[data-tooltip],
+.btn.repo-disabled:focus[data-tooltip] {
+  transform: none;
+}
+
+.btn.repo-disabled:hover[data-tooltip]::after,
+.btn.repo-disabled:focus[data-tooltip]::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  transition-delay: 0s;
 }
 
 /* Estilo del footer */
@@ -987,4 +1012,629 @@ footer p {
     flex-direction: column;
     gap: 10px;
   }
+}
+
+/* Estilos para la sección de Habilidades (nuevo diseño) */
+#skills {
+  scroll-margin-top: 60px;
+  background: linear-gradient(180deg, rgba(8, 46, 73, 1) 0%, rgba(4, 32, 52, 1) 100%);
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--white-color);
+  font-family: var(--primary-font);
+}
+
+#skills h2 {
+  font-size: 2.4rem;
+  margin-bottom: 24px;
+  color: var(--quinary-color);
+  letter-spacing: 0.2px;
+}
+
+/* Grid de categorías: tarjetas limpias y centradas */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+  padding: 10px;
+}
+
+/* Tarjeta de categoria */
+.skill-category {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(2, 8, 23, 0.45);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 180px;
+}
+
+.skill-category:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(2, 8, 23, 0.55);
+}
+
+/* Título dentro de la tarjeta */
+.skill-category h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--white-color);
+  text-align: left;
+}
+
+/* Contenedor de bricks */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Brick renovado: icon circular + etiqueta */
+.skill-brick {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  font-family: var(--secondary-font);
+  font-size: 0.95rem;
+  cursor: default;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Icono dentro de cada brick: círculo contraste */
+.skill-brick i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white-color);
+  font-size: 1.05rem;
+  transition: color 0.25s ease, transform 0.15s ease, background 0.18s ease;
+  flex-shrink: 0;
+}
+
+/* Hover del brick: ligera elevación y fondo más claro */
+.skill-brick:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 20px rgba(2, 8, 23, 0.45);
+}
+
+/* Pequeña elevación del icono para feedback visual */
+.skill-brick:hover i {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.10);
+}
+
+/* Mantener accesibilidad en foco (teclado) */
+.skill-brick:focus-within,
+.skill-brick:focus {
+  outline: 3px solid rgba(0, 86, 179, 0.18);
+  outline-offset: 4px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  #skills {
+    padding: 40px 12px;
+  }
+
+  .skill-category {
+    padding: 18px;
+    min-height: auto;
+  }
+
+  .skill-brick {
+    padding: 8px 10px;
+    font-size: 0.92rem;
+  }
+}
+
+/* Colores por tecnología (hover): mantienen comportamiento previo */
+.skill-brick:hover i.fa-html5 {
+  color: #E34F26;
+}
+
+/* HTML5 */
+.skill-brick:hover i.fa-css3-alt {
+  color: #1572B6;
+}
+
+/* CSS3 */
+.skill-brick:hover i.fa-js-square {
+  color: #F7DF1E;
+}
+
+/* JavaScript */
+.skill-brick:hover i.fab.fa-node-js,
+.skill-brick:hover i.devicon-nodejs-plain {
+  color: #3C873A;
+}
+
+/* Node.js */
+.skill-brick:hover i.fab.fa-java,
+.skill-brick:hover i.devicon-java-plain {
+  color: #007396;
+}
+
+/* Java */
+.skill-brick:hover i.devicon-mongodb-plain {
+  color: #47A248;
+}
+
+/* MongoDB */
+.skill-brick:hover i.devicon-postgresql-plain {
+  color: #336791;
+}
+
+/* PostgreSQL */
+.skill-brick:hover i.devicon-mysql-plain {
+  color: #00758F;
+}
+
+/* MySQL */
+.skill-brick:hover i.fab.fa-git-alt,
+.skill-brick:hover i.fab.fa-git {
+  color: #F34F29;
+}
+
+/* Git */
+.skill-brick:hover i.fab.fa-github {
+  color: #181717;
+}
+
+/* GitHub */
+.skill-brick:hover i.fab.fa-figma {
+  color: #F24E1E;
+}
+
+/* Figma (approx) */
+.skill-brick:hover i.fab.fa-trello {
+  color: #0079BF;
+}
+
+/* Trello */
+.skill-brick:hover i.fab.fa-jira {
+  color: #0052CC;
+}
+
+/* Jira */
+.skill-brick:hover i.fas.fa-leaf {
+  color: #6DB33F;
+}
+
+/* Spring (leaf) */
+.skill-brick:hover i.devicon-nestjs-plain {
+  color: #E0234E;
+}
+
+/* NestJS */
+/* Si agregas más iconos, copia el patrón anterior para mantener consistencia */
+
+/* Estilos para Proyectos (restaurados y armonizados) */
+#proyectos {
+  scroll-margin-top: 30px;
+  padding: 60px 20px;
+  /* Usar mismo fondo que la sección Certificados (sin degradé) */
+  background: linear-gradient(180deg, rgb(5, 41, 67) 0%, rgba(4, 32, 52, 1) 100%);
+  color: var(--white-color);
+  font-family: var(--primary-font);
+}
+
+/* Grid de proyectos */
+.project-list {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  padding: 0 12px;
+  align-items: start;
+}
+
+/* Card principal */
+.project-item {
+  display: flex;
+  gap: 18px;
+  /* Quitar degradé y usar mismo color de fondo que la sección */
+  background-color: var(--secondary-color);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(2, 8, 23, 0.28);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  align-items: stretch;
+}
+
+/* Imagen / preview */
+.project-image {
+  flex: 0 0 40%;
+  min-height: 180px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.04);
+  display: block;
+}
+
+/* Si usas <img> */
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  vertical-align: middle;
+}
+
+/* Overlay sutil para legibilidad (usa colores de la paleta) */
+.project-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(2, 16, 34, 0.18));
+  pointer-events: none;
+}
+
+/* Contenido del proyecto */
+.project-info {
+  flex: 1;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  color: var(--white-color);
+  font-family: var(--primary-font);
+}
+
+/* Texto descriptivo */
+.project-info p {
+  margin: 0 0 14px 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  font-family: var(--secondary-font);
+  font-size: 0.98rem;
+}
+
+/* Tecnologías usadas como etiquetas */
+.technologies,
+.project-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 8px 0 12px 0;
+}
+
+.technologies ul {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.technologies ul li,
+.project-tags .project-tag {
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-family: var(--secondary-font);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Botones del proyecto */
+.project-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* Reutilizable: btn (armonizado con .proj-link) */
+.btn,
+.proj-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--white-color);
+  color: var(--black-color);
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: var(--secondary-font);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Variante primaria (outline con color de la paleta) */
+.btn.primary {
+  background: transparent;
+  color: var(--white-color);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Hover usando color principal del sitio */
+.btn:hover,
+.proj-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(2, 8, 23, 0.24);
+  background: var(--quartery-color);
+  color: var(--white-color);
+}
+
+/* Hover exclusivo para el botón "Ver proyecto" de GoGym */
+.project-item.project-gogym .btn.gogym-btn:hover,
+.project-item.project-gogym .btn.gogym-btn:focus {
+  background: var(--gogym-color);
+  color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(255, 122, 0, 0.18);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Hover del card usa sombras con color del sitio para coherencia */
+.project-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 46px rgba(2, 8, 23, 0.45);
+}
+
+/* Accesibilidad */
+.project-item:focus-within,
+.project-item:focus {
+  outline: 3px solid rgba(0, 86, 179, 0.12);
+  outline-offset: 6px;
+}
+
+/* Responsivo */
+@media (max-width: 920px) {
+  .project-image {
+    flex: 0 0 45%;
+    min-height: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-item {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .project-image {
+    width: 100%;
+    flex: 0 0 auto;
+    min-height: 220px;
+  }
+
+  .project-info {
+    padding: 14px;
+  }
+
+  #proyectos {
+    padding: 40px 12px;
+  }
+}
+
+/* Títulos de secciones — consistente y centrado */
+#proyectos h2,
+#formacion h2,
+#certificados h2,
+#skills h2,
+#contacto h2,
+#sobre-mi .about-title {
+  text-align: center;
+  font-size: 2.4rem;
+  margin: 0 auto 28px auto;
+  color: var(--quinary-color);
+  letter-spacing: 0.2px;
+  max-width: 1100px;
+  padding: 0 12px;
+}
+
+/* Mantener el mismo estilo del header h1 cuando es link (logo clickeable) */
+header .brand {
+  font-size: 2rem;
+  margin: 0;
+  font-family: var(--primary-font);
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+header .brand:hover {
+  transform: translateY(-2px);
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Añade foco visible para accesibilidad */
+header .brand:focus {
+  outline: 3px solid rgba(0, 86, 179, 0.18);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Aplicar la misma tipografía y estilo del logo (.brand) a los enlaces del nav */
+header .brand,
+header nav ul li a {
+  font-family: var(--primary-font);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-transform: none;
+}
+
+/* Ajustes visuales para coherencia con el logo */
+header nav ul li a {
+  font-size: 1rem;
+  color: inherit;
+  transition: color 0.18s ease, transform 0.12s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a:focus {
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Modal certificado (vista ampliada) */
+.cert-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.cert-modal.open {
+  display: flex;
+}
+
+.cert-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 12, 0.7);
+  backdrop-filter: blur(3px);
+  transition: opacity 200ms ease;
+}
+
+.cert-modal-content {
+  position: relative;
+  z-index: 3010;
+  /* limitar la expansión del modal para que no ocupe toda la pantalla */
+  max-width: min(980px, 80vw);
+  max-height: min(720px, 75vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+}
+
+.cert-modal-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  cursor: grab;
+}
+
+.cert-modal-inner:active {
+  cursor: grabbing;
+}
+
+.cert-modal-inner img {
+  /* que la imagen no crezca tan al abrirse */
+  max-width: 85%;
+  max-height: 85%;
+  transform-origin: center center;
+  user-select: none;
+  touch-action: none;
+  will-change: transform;
+  transition: transform 120ms linear;
+  -webkit-user-drag: none;
+}
+
+/* Botón cerrar */
+.cert-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  z-index: 3020;
+}
+
+/* Evitar scroll de fondo cuando el modal está abierto */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Botón de repositorio deshabilitado (GoGym): sin hover, no clicable, tooltip via title */
+.btn.repo-disabled {
+  pointer-events: auto;
+  cursor: not-allowed;
+  opacity: 0.7;
+  background: linear-gradient(#f0f0f0, #e2e2e2);
+  color: rgba(0, 0, 0, 0.65);
+  border: 1px dashed rgba(0, 0, 0, 0.12);
+  box-shadow: none;
+  transform: none;
+  position: relative;
+}
+
+/* quitar cualquier hover visual */
+.btn.repo-disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Tooltip visual (usa data-tooltip) */
+.btn.repo-disabled[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  bottom: 100%;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.86);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.12s ease, transform 0.12s ease, visibility 0s linear 0.12s;
+  z-index: 50;
+}
+
+/* Mostrar tooltip en hover (o si quieres soportar focus/keyboard cuando no está disabled, añadí focus también) */
+.btn.repo-disabled:hover[data-tooltip],
+.btn.repo-disabled:focus[data-tooltip] {
+  transform: none;
+}
+
+.btn.repo-disabled:hover[data-tooltip]::after,
+.btn.repo-disabled:focus[data-tooltip]::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  transition-delay: 0s;
 }

@@ -1,0 +1,281 @@
+/* Estilos propios de la página GoGym (tema naranja) */
+:root {
+    --gogym-orange-1: #ff7a00;
+    --gogym-orange-2: #ff9a33;
+    --gogym-dark: #3b2300;
+    --gogym-contrast: #ffffff;
+}
+
+.gogym-page {
+    background: linear-gradient(180deg, var(--gogym-orange-2), var(--gogym-orange-1));
+    color: var(--gogym-dark);
+    min-height: 100vh;
+    font-family: var(--primary-font);
+}
+
+/* Header */
+.gogym-header {
+    /* navbar sólido (sin transparencia) */
+    background: var(--gogym-orange-1);
+    /* color sólido coherente con el tema GoGym */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    /* sutil separación */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    /* opcional: ligera profundidad */
+}
+
+.gogym-header .container {
+    display: flex;
+    justify-content: flex-start;
+    /* alinear a la izquierda */
+    align-items: center;
+    gap: 12px;
+    /* separar la marca del botón volver */
+    /* Llevar la barra a todo el ancho para pegar elementos al borde */
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 8px 12px;
+    /* menos padding para quedar más pegado al borde */
+}
+
+.gogym-header .brand {
+    color: var(--gogym-contrast);
+    text-decoration: none;
+    font-size: 2rem;
+    /* igual tamaño que en index */
+    font-family: var(--primary-font);
+    font-weight: 700;
+}
+
+.gogym-nav .btn.back {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--gogym-contrast);
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-left: 6px;
+    /* pequeño ajuste junto a la marca */
+
+    /* suavizar interacción para hover/keyboard */
+    transition: background-color 0.18s ease, transform 0.18s cubic-bezier(.2, .9, .2, 1), box-shadow 0.22s cubic-bezier(.2, .9, .2, 1), color 0.12s ease;
+    will-change: transform, box-shadow;
+}
+
+.gogym-nav .btn.back:hover,
+.gogym-nav .btn.back:focus {
+    /* mismo efecto que los botones "Ver proyecto" en index:
+       color de hover (var(--quartery-color)), mayor elevación y sombra */
+    background: var(--quartery-color);
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0, 86, 179, 0.22);
+    outline: none;
+}
+
+/* bajar un poco al hacer click para efecto táctil */
+.gogym-nav .btn.back:active {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(0, 86, 179, 0.14);
+}
+
+/* Hero */
+.gogym-hero {
+    padding: 48px 0;
+}
+
+.hero-inner {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-text {
+    flex: 1;
+    color: var(--gogym-contrast);
+}
+
+.hero-text h1 {
+    font-size: 2.6rem;
+    margin-bottom: 12px;
+    letter-spacing: 0.6px;
+}
+
+.lead {
+    opacity: 0.95;
+    max-width: 54ch;
+    margin-bottom: 12px;
+}
+
+.meta {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0 18px;
+    flex-wrap: wrap;
+}
+
+.hero-media img {
+    max-width: 360px;
+    border-radius: 12px;
+    border: 4px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Sections */
+.section {
+    padding: 36px 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 18px;
+}
+
+/* Two columns */
+.two-cols {
+    display: flex;
+    gap: 20px;
+}
+
+.two-cols>div {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 16px;
+    border-radius: 8px;
+    color: var(--gogym-contrast);
+}
+
+/* Tech list */
+.tech-list {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+}
+
+.tech-list li {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 8px 12px;
+    border-radius: 999px;
+    color: var(--gogym-contrast);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Media grid */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.media-item {
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.media-item img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.media-item figcaption {
+    padding: 10px;
+    color: var(--gogym-contrast);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), transparent);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.btn.primary {
+    background: var(--gogym-dark);
+    color: var(--gogym-contrast);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1200;
+}
+
+.lightbox[aria-hidden="false"] {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+    background: transparent;
+}
+
+.lightbox-content img,
+.lightbox-content video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 2.2rem;
+    color: var(--gogym-contrast);
+}
+
+/* Footer */
+.gogym-footer {
+    padding: 28px 0;
+    color: var(--gogym-contrast);
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 880px) {
+    .hero-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-media img {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .two-cols {
+        flex-direction: column;
+    }
+}

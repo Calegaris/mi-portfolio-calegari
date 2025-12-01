@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>GoGym — Proyecto | Portfolio Luis Calegari</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/gogym.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="gogym-page">
+
+    <header class="gogym-header">
+        <div class="container">
+            <a class="brand" href="index.html">Luis<strong>.</strong>Dev</a>
+            <nav class="gogym-nav">
+                <a class="btn back" href="/index.html#proyectos" aria-label="Volver al portfolio"><i
+                        class="fa fa-arrow-left"></i>
+                    Volver</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="gogym-hero">
+            <div class="hero-inner container">
+                <div class="hero-text">
+                    <h1>(Página en Construcción )</h1>
+                    <p class="lead">Plataforma de gestión para gimnasios con una API REST robusta para el control de
+                        usuarios, membresías y control de acceso.</p>
+                    <div class="meta">
+                        <span><strong>Rol:</strong>Desarrollador Backend</span> <br>
+                        <span><strong>Estado:</strong> Proyecto Finalizado (Desplegado)</span>
+                    </div>
+                    <div class="hero-actions">
+                        <a class="btn primary" href="#info">Más información</a>
+                        <a class="btn" href="#tech">Tecnologías</a>
+                        <a class="btn" href="#gallery">Galería</a>
+                    </div>
+                </div>
+                <div class="hero-media">
+                    <img src="imgs/goGym.png" alt="Mockup GoGym" />
+                </div>
+            </div>
+        </section>
+
+        <section id="info" class="section container">
+            <h2>Descripción</h2>
+            <p>GoGym fue el Proyecto Integrador para la Fundación Banco Nación y Fundación Pescar. Como
+                Desarrollador Backend, mi responsabilidad fue diseñar, construir y desplegar la API REST completa desde
+                cero. El objetivo fue crear una arquitectura modular, escalable y segura para manejar toda
+                la lógica de negocio de la plataforma.</p>
+
+            <div class="two-cols">
+                <div>
+                    <h3>Características Implementadas</h3>
+                    <ul>
+                        <li>Sistema de autenticación (login) y autorización por roles (cliente/admin) usando JWT.</li>
+                        <li>Gestión completa de membresías e historial de asistencias.</li>
+                        <li>Sistema de escaneo QR para control de ingreso y salida del gimnasio.</li>
+                        <li>API RESTful con arquitectura modular siguiendo las mejores prácticas de NestJS.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Desafíos Técnicos Resueltos</h3>
+                    <ul>
+                        <li>Seguridad de contraseñas en la base de datos usando hasheo con bcrypt.</li>
+                        <li>Testing funcional de todos los endpoints de la API con Postman.</li>
+                        <li>Deploy de la aplicación en Render y migración de la base de datos local a MongoDB Atlas.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech" class="section container">
+            <h2>Tecnologías del Backend</h2>
+            <ul class="tech-list">
+                <li><i class="devicon-nestjs-plain"></i> NestJS</li>
+                <li><i class="devicon-mongodb-plain-wordmark"></i> MongoDB</li>
+                <li><i class="devicon-mongodb-plain-wordmark"></i> Mongo Atlas</li>
+                <li><i class="devicon-postman-plain"></i> Postman</li>
+                <li><i class="devicon-render-plain"></i> Render</li>
+                <li><i class="fas fa-key"></i> JWT (Autenticación)</li>
+                <li><i class="fas fa-shield-alt"></i> Bcrypt (Hasheo)</li>
+                <li><i class="devicon-git-plain"></i> Git</li>
+            </ul>
+        </section>
+
+        <section id="gallery" class="section container">
+            <h2>Fotos y Videos</h2>
+            <div class="media-grid">
+                <figure class="media-item">
+                    <img src="imgs/gogym-1.jpg" alt="Pantalla de inicio GoGym">
+                    <figcaption>Landing — inicio</figcaption>
+                </figure>
+                <figure class="media-item video" data-video="imgs/gogym-demo.mp4">
+                    <img src="imgs/gogym-thumb.jpg" alt="Video demo">
+                    <figcaption>Demo funcional (clic para reproducir)</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="notes" class="section container">
+            <h2>Logros Clave del Backend</h2>
+            <ol>
+                <li>Se implementó un sistema de autenticación y RBAC (control de roles) 100% funcional con JSON Web
+                    Tokens.</li>
+                <li>El backend se construyó con NestJS y se conectó a MongoDB (desarrollo) y Mongo Atlas (producción)
+                    .</li>
+                <li>Se desplegó la API con éxito en Render, configurando un flujo de CI/CD (push-to-deploy).</li>
+                <li>Se aseguró la integridad de los datos de usuario con hasheo de contraseñas.</li>
+            </ol>
+        </section>
+
+        <footer class="gogym-footer container">
+            <p>GoGym — Proyecto dentro del portfolio. <a href="index.html">Volver al portfolio</a></p>
+        </footer>
+    </main>
+
+    <script src="js/gogym.js"></script>
+</body>
+
+</html>

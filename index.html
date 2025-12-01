@@ -7,16 +7,22 @@
     <title>Portfolio de Luis Calegari</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 </head>
 
 <body>
 
+    <!-- Botón hamburguesa -->
+    <button id="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+
+
     <header>
-        <h1>Luis<strong>.</strong>Dev</h1>
+        <a class="brand" href="#hero" aria-label="Ir al inicio">Luis<strong>.</strong>Dev</a>
         <nav>
             <ul>
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#skills">Habilidades</a></li>
                 <li><a href="#formacion">Formación</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#certificados">Certificados</a></li>
@@ -29,8 +35,18 @@
 
         <section id="hero" role="banner">
             <div class="hero-content">
-                <h2>Hola, soy Luis Calegari, <br> Desarrollador Web Full Stack.</h2>
-                <a href="docs/Luis-Calegari-CV.pdf" class="cta-btn" target="_blank">
+                <h1 class="hero-greeting">
+                    Hola, soy <span class="hero-name">Luis Calegari</span>
+                    <span class="hero-wave" role="img" aria-label="saludo">👋</span>
+                </h1>
+
+                <p class="hero-role">
+                    Desarrollador <span class="role-backend">Backend</span>
+                </p>
+
+                <p class="hero-techs" aria-hidden="false">Java Spring Boot | NestJS | Cloud Enthusiast</p>
+
+                <a href="docs/cv-luis-calegari.pdf" class="cta-btn" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -39,48 +55,34 @@
                     Mirá mi CV
                 </a>
             </div>
-            <div class="hero-image">
-                <img src="imgs/perfil-calegari.final.jpg"
-                    alt="Foto de perfil de Luis Calegari, desarrollador web full stack">
-            </div>
+            <!-- .hero-image removida intencionalmente -->
         </section>
 
 
         <section id="sobre-mi">
             <h2 class="about-title">Sobre mí</h2>
 
-
             <div class="cont-tx-img">
                 <div class="about-content">
+                    <p>
+                        Soy Desarrollador Backend y estudiante de la Licenciatura en Informática y Tecnicatura
+                        Web en la Universidad Nacional del Oeste. Mi especialidad es la construcción de APIs RESTful
+                        robustas y escalables, dominando tanto el ecosistema de Java (Spring Boot) como el de Node.js
+                        (NestJS). Complemento mi perfil de desarrollo con conocimientos en infraestructura cloud (Oracle
+                        Cloud Certified) y bases de datos SQL y NoSQL.
+                    </p>
+                    <p>
+                        Me caracterizo por la atención al detalle en la calidad del código.
+                        Disfruto del trabajo en equipo y tengo facilidad para adaptarme a nuevos desafíos técnicos.
+                        Actualmente, busco una oportunidad profesional donde pueda aportar valor desde el primer día,
+                        aplicando mis conocimientos en arquitectura de software y despliegue de aplicaciones.
+                    </p>
 
-                    <p>
-                        Soy Luis Calegari, Desarrollador Web Full Stack y estudiante universitario, con experiencia en
-                        Front-End y Back-End. Mi actual formación incluye Java con Spring Boot y el stack MERN (MongoDB,
-                        Express.js, React, Node.js). Además, manejo herramientas como Git, GitHub, Trello y Figma,
-                        mientras
-                        perfecciono mi nivel de inglés para abrirme más oportunidades internacionales.
-                    </p>
-                    <p>
-                        Actualmente curso el segundo año de la Licenciatura en Informática y la Tecnicatura
-                        Universitaria en
-                        Tecnologías Web. Gracias a mi constancia y compromiso, he obtenido excelentes resultados
-                        académicos,
-                        logrando notas destacadas en materias clave de mi carrera.
-                    </p>
-                    <p>
-                        Me defino como una persona comprometida, adaptable, con pensamiento crítico, detallista y buen
-                        trabajo en equipo. Busco una oportunidad
-                        en el sector tecnológico donde pueda aplicar mis habilidades, seguir aprendiendo y crecer
-                        profesionalmente. Estoy listo para aportar desde el primer día.
-                    </p>
                     <ul class="personal-info">
                         <li>
                             <i class="fa-solid fa-location-dot"></i> Moreno, Buenos Aires
                         </li>
-                        <li>
-                            <i class="fa-solid fa-calendar-days"></i> Fecha de nacimiento:
-                            7/9/1997
-                        </li>
+
 
                         <div class="content-btns">
                             <li>
@@ -97,103 +99,113 @@
                     </ul>
                 </div>
 
-                <div class="about-image">
-                    <img src="imgs/animado.png" alt="Luis Calegari trabajando">
+                <!-- Nueva ubicación de la foto: lado derecho de la sección Sobre mí -->
+                <aside class="about-image" aria-hidden="false">
+                    <img src="imgs/perfil-calegari.final.jpg"
+                        alt="Foto de perfil de Luis Calegari, desarrollador web full stack">
+                </aside>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skills-container">
+                        <div class="skill-brick"><i class="fab fa-html5"></i><span>HTML</span></div>
+                        <div class="skill-brick"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+                        <div class="skill-brick"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skills-container">
+                        <div class="skill-brick"><i class="fab fa-java"></i><span>Java</span></div>
+                        <div class="skill-brick has-tooltip" data-tooltip="Framework para Java"><i
+                                class="fas fa-leaf"></i><span>Spring</span></div>
+                        <div class="skill-brick"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                        <div class="skill-brick has-tooltip" data-tooltip="Framework para Node.js"><i
+                                class="devicon-nestjs-plain"></i><span>NestJS</span></div>
+                    </div>
+
+                </div>
+                <div class="skill-category">
+                    <h3>Bases de datos</h3>
+                    <div class="skills-container">
+                        <div class="skill-brick"><i class="devicon-mongodb-plain"></i><span>MongoDB</span></div>
+                        <div class="skill-brick"><i class="devicon-postgresql-plain"></i><span>PostgreSQL</span></div>
+                        <div class="skill-brick"><i class="devicon-mysql-plain"></i><span>MySQL</span></div>
+                        <div class="skill-brick" title="Oracle Cloud Certified"><i
+                                class="devicon-oracle-plain"></i><span>Oracle DB</span></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Herramientas</h3>
+                    <div class="skills-container">
+                        <div class="skill-brick"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                        <div class="skill-brick"><i class="fab fa-github"></i><span>GitHub</span></div>
+                        <div class="skill-brick"><i class="fab fa-figma"></i><span>Figma</span></div>
+                        <div class="skill-brick"><i class="fab fa-trello"></i><span>Trello</span></div>
+                        <div class="skill-brick"><i class="fab fa-jira"></i><span>Jira</span></div>
+
+                    </div>
                 </div>
             </div>
-
-
         </section>
 
         <section id="formacion">
-            <h2>Formación Académica, Cursos y Experiencia Laboral</h2>
+            <h2>Formación Académica</h2>
 
             <!-- Formación Académica -->
             <div class="formacion-academica">
-                <h3>Formación Académica</h3>
+                <h3>Universidad Nacional del Oeste (UNO)</h3>
                 <ul>
                     <li>
-                        <strong>Universidad Nacional del Oeste (UNO)</strong><br>
+                        <strong>Licenciatura en Informática (2do/3er año)</strong><br>
                         2022 - Actualidad<br>
-                        Licenciatura en Informática (Acualmente cursando 2do/3er año)
-                        Promedio: 8.86
+                        Materias con final: 13/16 - Promedio: 8.62
                     </li>
                     <li>
+                        <strong>Tecnicatura Universitaria en Tecnologías Web (2do/3er año)</strong><br>
                         2025 - Actualidad<br>
-                        Tecnicatura Universitaria en Tecnologías Web (Actualmente cursando 2do año)
+                        Materias con final: 11/16 - Promedio: 8.73
                     </li>
                 </ul>
             </div>
 
-            <!-- Programas y Cursos -->
-            <div class="programas-cursos">
-                <h3>Programas y Cursos</h3>
-                <ul>
-                    <li>
-                        <strong>Fundación Banco Nación | Fundación Pescar | EducacionIT</strong><br>
-                        Feb 2025 - En curso<br>
-                        Desarrollador Web Full Stack - MERN (+237hs)<br>
-                        Formación en habilidades interpersonales (+144hs)
-                    </li>
-                    <li>
-                        <strong>Oracle | Alura Latam - Programa ONE</strong><br>
-                        Especialización Back-End (2025 - En curso) +200hs<br>
-                        Curso: Lógica de programación con JavaScript - 23hs<br>
-                        Curso: Principiante en Programación G8 - 70hs<br>
-                        Curso: Desarrollo Personal G8 - 35hs
-                    </li>
-                    <li>
-                        <strong>Talento Tech | CABA</strong><br>
-                        Talento Tech - Back-End Java (2025 - En curso)
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Experiencia Laboral -->
-            <div class="work-experience">
-                <h3>Experiencia Laboral</h3>
-                <ul>
-                    <li>
-                        <strong>Pasantía en Subsecretaría de Transporte, Municipalidad de Merlo</strong><br>
-                        Agosto 2024 - Noviembre 2024<br>
-                        Manejo de sistemas de gestión para toma y carga de datos biométricos<br>
-                        Atención al cliente y resolución de problemas en tiempo real<br>
-                        Gestión de información y documentación administrativa<br>
-                        Adaptabilidad a entornos dinámicos y cumplimiento de procedimientos
-                    </li>
-                </ul>
-            </div>
         </section>
 
         <section id="proyectos">
-            <h2>Proyectos</h2>
+            <h2>Proyectos (En Construcción)</h2>
 
             <!-- Proyecto actual -->
-            <article class="project-item">
+            <article class="project-item project-gogym">
                 <div class="project-image">
                     <img src="imgs/goGym.png" alt="Imagen del proyecto GoGym">
                 </div>
                 <div class="project-info">
                     <h3>GoGym: Plataforma para gestión de gimnasios</h3>
                     <p>
-                        Una plataforma para digitalizar la gestión de gimnasios, desarrollada utilizando metodologías
-                        ágiles y diseño centrado en el usuario. Aplicamos buenas prácticas de programación para
-                        garantizar calidad y eficiencia.
+                        Sistema de gestión integral con arquitectura de microservicios. Backend escalable desarrollado
+                        en NestJS con seguridad JWT y despliegue automatizado.
                     </p>
                     <div class="technologies">
                         <h4>Tecnologías utilizadas:</h4>
                         <ul>
                             <li>React</li>
-                            <li>Node.js</li>
-                            <li>MongoDB</li>
-                            <li>Express.js</li>
-                            <li>GitHub</li>
+                            <li>Nest.js</li>
+                            <li>MongoDB/Mongo Atlas</li>
+                            <li>JWT</li>
+                            <li>Render</li>
                         </ul>
                     </div>
                     <div class="project-buttons">
-                        <a href="#" class="btn" target="_blank">Ver proyecto</a>
-                        <a href="https://github.com/KLGomez/GoGYM" class="btn" target="_blank">Repositorio en
-                            GitHub</a>
+                        <a href="/gogym.html" class="btn gogym-btn">Ver proyecto</a>
+                        <button type="button" class="btn repo-disabled" disabled aria-disabled="true"
+                            data-tooltip="Este código no es público por razones de propiedad intelectual y futura comercialización.">
+                            Repositorio en GitHub
+                        </button>
                     </div>
                 </div>
             </article>
@@ -225,7 +237,7 @@
         </section>
 
         <section id="certificados">
-            <h2>Certificados</h2>
+            <h2>Certificados (En Construcción)</h2>
 
             <div class="filter-controls">
                 <label for="emitter-select">Emisor:</label>
@@ -234,6 +246,8 @@
                     <option value="educacionit">EducaciónIT</option>
                     <option value="alura-latam">Alura Latam</option>
                     <option value="talento-tech">Talento Tech</option>
+                    <option value="oracle-cloud">Oracle Cloud</option>
+                    <option value="ibm">IBM</option>
                 </select>
 
                 <label for="area-select">Área:</label>
@@ -242,33 +256,54 @@
                     <option value="frontend">Front-End</option>
                     <option value="backend">Back-End</option>
                     <option value="databases">Bases de Datos</option>
+                    <option value="cloud">Cloud</option>
+                    <option value="ia">IA</option>
                 </select>
             </div>
 
             <!-- Carrusel dinámico -->
             <div class="carousel" id="cert-carousel">
+
+                <div class="certificate-card" data-emitter="ibm" data-area="cloud">
+                    <img src="imgs/certificados/OCIcertificado.pdf.jpg"
+                        alt="Certificado Oracle Cloud Certified Associate - Oracle">
+                    <h4>Oracle Cloud Certified Associate</h4>
+                    <p>Oracle</p>
+                    <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=32A7B22B15F06845B8F617C16D6384E2BD02777679181B19E74DB5250AF4D7DB"
+                        target="_blank" class="cert-link">Ver
+                        certificado</a>
+                </div>
+                <div class="certificate-card" data-emitter="oracle-cloud" data-area="ia">
+                    <img src="imgs/certificados/artificial-intelligence-fundamentals.png"
+                        alt="Certificado Artificial Intelligence Fundamentals - IBM">
+                    <h4>Certificado Artificial Intelligence Fundamentals</h4>
+                    <p>IBM</p>
+                    <a href="https://www.credly.com/badges/f6fd26ae-d045-4aaf-825f-2383f0436de0/public_url"
+                        target="_blank" class="cert-link">Ver
+                        certificado</a>
+                </div>
                 <div class="certificate-card" data-emitter="educacionit" data-area="frontend">
-                    <img src="imgs/Certificado-Desarrollo-Web-con-HTML-EducaciónIT.png"
+                    <img src="imgs/certificados/Certificado-Desarrollo-Web-con-HTML-EducaciónIT.png"
                         alt="Certificado Front-End - EducaciónIT">
                     <h4>Certificado de Aprobación - Desarrollo Web con HTML</h4>
-                    <p>EducacionIT | Feb 2025</p>
+                    <p>EducacionIT</p>
                     <a href="https://www.educacionit.com/perfil/luis-angel-calegari-1058939/certificado/80151?_gl"
                         target="_blank" class="cert-link">Ver
                         certificado</a>
                 </div>
                 <div class="certificate-card" data-emitter="alura-latam" data-area="backend">
-                    <img src="imgs/Luis Angel Calegari - Curso Java_ consumir API, escribir archivos y manejar errores - Alura_page-0001.jpg"
+                    <img src="imgs/certificados/Luis Angel Calegari - Curso Java_ consumir API, escribir archivos y manejar errores - Alura_page-0001.jpg"
                         alt="Certificado Back-End - Alura Latam">
                     <h4>Curso Java consumir API, escribir archivos y manejar errores</h4>
-                    <p>Alura Latam | May 2025</p>
+                    <p>Alura Latam</p>
                     <a href="https://app.aluracursos.com/certificate/bda4f05a-8908-4771-b3b6-559868fad11a?lang"
                         target="_blank" class="cert-link">Ver
                         certificado</a>
                 </div>
                 <div class="certificate-card" data-emitter="talento-tech" data-area="frontend">
-                    <img src="imgs/Diploma_TT.pdf.jpg" alt="Certificado Back-End - Talento Tech">
+                    <img src="imgs/certificados/Diploma_TT.pdf.jpg" alt="Certificado Back-End - Talento Tech">
                     <h4>Certificado de Finalizacion - Front-End JS</h4>
-                    <p>Talento Tech | 2024</p>
+                    <p>Talento Tech</p>
                     <a href="https://buenosaires.gob.ar/educacion/agencia-de-habilidades-para-el-futuro/talento-tech"
                         target="_blank" class="cert-link">Ver
                         certificado</a>
@@ -282,7 +317,7 @@
 
             <!-- Mensaje de presentación -->
             <p>
-                Si queres ponerte en contacto conmigo para ofertas laborales, proyectos o colaboraciones, aca abajo
+                Si queres ponerte en contacto, para ofertas laborales, proyectos o colaboraciones, aca abajo
                 tenes mis redes donde podes comunicarte conmigo o por medio del
                 formulario podes contactarme.
             </p>
@@ -337,12 +372,23 @@
     </main>
 
     <footer>
-        <p>Luis Calegari. Desarrollador Web Full Stack - 2025</p>
+        <p>Luis Calegari. Desarrollador Backend - 2025</p>
     </footer>
 
 
 
     <script src="js/scripts.js"></script>
+
+    <!-- Modal para vista ampliada de certificados -->
+    <div id="cert-modal" class="cert-modal" aria-hidden="true">
+        <div class="cert-modal-backdrop" data-close></div>
+        <div class="cert-modal-content" role="dialog" aria-modal="true" aria-label="Vista ampliada del certificado">
+            <button class="cert-modal-close" aria-label="Cerrar" data-close>&times;</button>
+            <div class="cert-modal-inner">
+                <img id="cert-modal-img" src="" alt="Certificado ampliado" draggable="false" />
+            </div>
+        </div>
+    </div>
 
 </body>
 
