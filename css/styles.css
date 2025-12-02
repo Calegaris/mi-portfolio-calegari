@@ -1759,3 +1759,30 @@ body.modal-open {
   transform: translateX(-50%) translateY(0);
   transition-delay: 0s;
 }
+
+@media (max-width: 768px) {
+
+  /* móvil: tooltip del botón deshabilitado se muestra debajo y no sobresale */
+  .btn.repo-disabled[data-tooltip]::after {
+    top: calc(100% + 8px);
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100vw - 32px);
+    white-space: normal;
+    text-align: center;
+    padding: 8px 10px;
+    z-index: 9999;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.12s ease, transform 0.12s ease, visibility 0s linear 0.12s;
+  }
+
+  .btn.repo-disabled:hover[data-tooltip]::after,
+  .btn.repo-disabled:focus[data-tooltip]::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+}
