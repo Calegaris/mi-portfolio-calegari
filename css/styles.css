@@ -794,6 +794,68 @@ h3 {
   /* Espacio para la flecha */
 }
 
+/* Nuevo: agrupar label+select para responsive en certificados */
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* permiten que label y select queden en la misma fila cuando haya espacio */
+}
+
+/* Ajustes visuales para los labels dentro del control */
+.filter-item label {
+  display: inline-block;
+  min-width: 88px;
+  font-size: 1rem;
+  text-align: left;
+  margin: 0;
+  color: var(--white-color);
+}
+
+/* Default: selects con tamaño razonable */
+.filter-item select {
+  min-width: 220px;
+  max-width: 320px;
+}
+
+/* Mobile: apilar los controles y asegurar que label + select se vean bien */
+@media (max-width: 768px) {
+  .filter-controls {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .filter-item {
+    width: 100%;
+    max-width: 520px;
+    justify-content: space-between;
+  }
+
+  .filter-item select {
+    width: calc(100% - 100px);
+    max-width: none;
+  }
+}
+
+/* Pequeñas pantallas: cada par label+select apilado verticalmente */
+@media (max-width: 420px) {
+  .filter-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .filter-item label {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .filter-item select {
+    width: 100%;
+  }
+}
+
 /* Carrusel */
 .carousel {
   display: flex;
@@ -1103,6 +1165,33 @@ form textarea {
   visibility: visible;
   transform: translateX(-50%) translateY(0);
   transition-delay: 0s;
+}
+
+@media (max-width: 768px) {
+
+  /* móvil: tooltip del botón deshabilitado se muestra debajo y no sobresale */
+  .btn.repo-disabled[data-tooltip]::after {
+    top: calc(100% + 8px);
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100vw - 32px);
+    white-space: normal;
+    text-align: center;
+    padding: 8px 10px;
+    z-index: 9999;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.12s ease, transform 0.12s ease, visibility 0s linear 0.12s;
+  }
+
+  .btn.repo-disabled:hover[data-tooltip]::after,
+  .btn.repo-disabled:focus[data-tooltip]::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 /* Estilo del footer */
