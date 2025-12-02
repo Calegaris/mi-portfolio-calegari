@@ -936,14 +936,47 @@ h3 {
 
 /* Responsivo */
 @media (max-width: 768px) {
+
+  /* mantenemos el carrusel en fila para permitir desplazamiento horizontal en mobile */
   .carousel {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    /* fila horizontal */
+    align-items: flex-start;
+    /* alinear al inicio para cards */
+    overflow-x: auto;
+    /* scroll horizontal */
+    -webkit-overflow-scrolling: touch;
+    /* scrolling suave en iOS */
+    scroll-snap-type: x mandatory;
+    /* snap horizontal */
+    gap: 1rem;
+    padding: 1rem 12px;
+    /* padding lateral para que no pegue al borde */
   }
 
+  /* cards con ancho minimo para que ocupen una porción de la pantalla y permitan swipe */
   .certificate-card {
-    width: 100%;
+    width: min(86vw, 320px);
+    flex: 0 0 auto;
+    scroll-snap-align: start;
   }
+
+  /* Opcional: estética de scrollbar (ocultar scrollbar manteniendo scroll) */
+  .carousel::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .carousel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+  }
+
+  .carousel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Si previamente habías cambiado .certificate-card a width:100% en mobile, ya no aplicará */
+  /* ... */
 }
 
 /* Sección de contacto */
