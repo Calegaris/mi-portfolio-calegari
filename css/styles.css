@@ -271,10 +271,36 @@ nav ul li a:hover {
     --header-height: 56px;
   }
 
+  /* Móvil: distribuir el hero más hacia abajo y dar más espacio al CTA */
   #hero {
-    min-height: calc(100vh - var(--header-height));
-    padding: 48px 14px;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+    justify-content: flex-end;
+    /* aumenté el espacio inferior para separar aún más el botón */
+    padding-bottom: 8rem;
+  }
+
+  .hero-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     align-items: center;
+    /* bajé visualmente el bloque aún más en móviles */
+    transform: translateY(14%);
+  }
+
+  .hero-image {
+    margin-top: 20px;
+  }
+
+  .cta-btn {
+    justify-content: center;
+    /* mayor separación para que el botón quede más abajo en mobile */
+    margin-top: 3rem;
+    margin-bottom: 0.8rem;
+    padding: 0.9rem 1.6rem;
   }
 }
 
