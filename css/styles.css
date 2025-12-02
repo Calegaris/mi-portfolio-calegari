@@ -595,8 +595,39 @@ nav ul li a:hover {
     padding: 40px 20px;
   }
 
+  /* Nuevo: en mobile mostramos la imagen encima del contenido y centrada */
+  .cont-tx-img {
+    display: flex;
+    flex-direction: column-reverse;
+    /* imagen arriba, contenido abajo */
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
   .about-image {
-    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* ensure spacing is consistent */
+    margin: 0;
+  }
+
+  .about-image img {
+    width: min(64vw, 260px);
+    /* tamaño apropiado en móviles */
+    max-width: 260px;
+    height: auto;
+    margin-left: 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .about-content {
+    width: 100%;
+    max-width: 760px;
+    padding: 1.25rem;
+    box-sizing: border-box;
   }
 }
 
